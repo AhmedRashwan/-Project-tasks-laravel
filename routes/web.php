@@ -30,7 +30,8 @@
 
 Route::get('/',[
     'uses'=>'PagesController@home',
-    'as'=>'home'
+    'as'=>'home',
+    'middleware'=>'testme'
 ]);
 Route::get('/contact',[
     'uses'=>'PagesController@contact',
@@ -62,3 +63,6 @@ Route::post('/tasks',[
     'uses'=>'projectTaskController@store',
     'as'=>'task.store'
 ]);
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
